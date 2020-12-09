@@ -25,18 +25,16 @@ pygame.display.set_caption('Face Recognition')
 # It simulates the diffrent frame we would have gotten from
 # an actual camera
 IMAGES = [
-'/home/darshan/Internship/images/om2.jpeg',
-'/home/darshan/Internship/images/opm1.jpeg',
-'/home/darshan/Internship/images/obama1.jpeg',
-'/home/darshan/Internship/images/putin1.jpeg',
-'/home/darshan/Internship/images/elon1.jpeg',
-'/home/darshan/Internship/images/pm1.jpeg',
-'/home/darshan/Internship/images/car3.jpeg',
-'/home/darshan/Internship/images/obama4.jpeg',
-'/home/darshan/Internship/images/car1.jpeg',
+'images/om2.jpeg',
+'images/opm1.jpeg',
+'images/obama1.jpeg',
+'images/putin1.jpeg',
+'images/elon1.jpeg',
+'images/pm1.jpeg',
+'images/car3.jpeg',
+'images/obama4.jpeg',
+'images/car1.jpeg'
 ]
-
-
 
 # Images processed
 img_processed = 0
@@ -61,6 +59,7 @@ class FaceRecognitionMachine(object):
 
 		self.machine.add_transition(trigger='not_found', source='MachineActive', dest='MachineInactive')
 
+		
 # Used to render the text on the pygame window
 def render_text(face_names, curr_state):
 
@@ -82,6 +81,7 @@ def render_text(face_names, curr_state):
 		pygame.display.update()
 		y += 15	
 
+		
 # Initialize the state machine
 statemachine = FaceRecognitionMachine()
 curr_state = statemachine.state
@@ -158,6 +158,7 @@ while img_processed < len(IMAGES):
 			statemachine.trigger('not_found')
 			curr_state = statemachine.state
 
+			
 	# Calling the text render function to render the identified faces and current machine state
 	render_text(face_names, curr_state)
 	
